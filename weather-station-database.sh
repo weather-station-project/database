@@ -23,17 +23,27 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
     -- DEV ENVIRONMENT
     \c weather_station_dev
 
-    -- Table temperatures
-    CREATE TABLE temperatures (
+    -- Table ambient_temperatures
+    CREATE TABLE ambient_temperatures (
         id SERIAL PRIMARY KEY,
-        ambient_temperature INT NOT NULL,
-        ground_temperature INT NOT NULL,
+        temperature INT NOT NULL,
         date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
     );
 
-    GRANT SELECT, INSERT ON temperatures TO sensors_reader_dev;
-    GRANT SELECT ON temperatures TO dashboard_dev;
-    GRANT USAGE, SELECT ON SEQUENCE temperatures_id_seq TO sensors_reader_dev;
+    GRANT SELECT, INSERT ON ambient_temperatures TO sensors_reader_dev;
+    GRANT SELECT ON ambient_temperatures TO dashboard_dev;
+    GRANT USAGE, SELECT ON SEQUENCE ambient_temperatures_id_seq TO sensors_reader_dev;
+
+    -- Table ground_temperatures
+    CREATE TABLE ground_temperatures (
+        id SERIAL PRIMARY KEY,
+        temperature INT NOT NULL,
+        date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
+    );
+
+    GRANT SELECT, INSERT ON ground_temperatures TO sensors_reader_dev;
+    GRANT SELECT ON ground_temperatures TO dashboard_dev;
+    GRANT USAGE, SELECT ON SEQUENCE ground_temperatures_id_seq TO sensors_reader_dev;
 
     -- Table air_measurements
     CREATE TABLE air_measurements (
@@ -75,17 +85,27 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
     -- PROD ENVIRONMENT
     \c weather_station
 
-    -- Table temperatures
-    CREATE TABLE temperatures (
+    -- Table ambient_temperatures
+    CREATE TABLE ambient_temperatures (
         id SERIAL PRIMARY KEY,
-        ambient_temperature INT NOT NULL,
-        ground_temperature INT NOT NULL,
+        temperature INT NOT NULL,
         date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
     );
 
-    GRANT SELECT, INSERT ON temperatures TO sensors_reader;
-    GRANT SELECT ON temperatures TO dashboard;
-    GRANT USAGE, SELECT ON SEQUENCE temperatures_id_seq TO sensors_reader;
+    GRANT SELECT, INSERT ON ambient_temperatures TO sensors_reader;
+    GRANT SELECT ON ambient_temperatures TO dashboard;
+    GRANT USAGE, SELECT ON SEQUENCE ambient_temperatures_id_seq TO sensors_reader;
+
+    -- Table ambient_temperatures
+    CREATE TABLE ground_temperatures (
+        id SERIAL PRIMARY KEY,
+        temperature INT NOT NULL,
+        date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
+    );
+
+    GRANT SELECT, INSERT ON ground_temperatures TO sensors_reader;
+    GRANT SELECT ON ground_temperatures TO dashboard;
+    GRANT USAGE, SELECT ON SEQUENCE ground_temperatures_id_seq TO sensors_reader;
 
     -- Table air_measurements
     CREATE TABLE air_measurements (
