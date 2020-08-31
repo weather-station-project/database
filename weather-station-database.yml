@@ -1,0 +1,23 @@
+version: "3.5"
+services:
+  weather-station-database:
+    container_name: weather-station-database
+    image: postgres:12.4-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_INITDB_ARGS=--data-checksums
+      - POSTGRES_PASSWORD=this-user-will-be-disabled
+      - ADMIN_HOST_IP_ADDRESS=<Put here an IP>
+      - ADMIN_USER_PASSWORD=admin
+      - SENSORS_READER_HOST_IP_ADDRESS=<Put here an IP>
+      - SENSORS_READER_DEV_PASSWORD=123456
+      - SENSORS_READER_PASSWORD=123456
+      - DASHBOARD_HOST_IP_ADDRESS=<Put here an IP>
+      - DASHBOARD_DEV_PASSWORD=123456
+      - DASHBOARD_PASSWORD=123456
+    ports:
+      - "5432:5432"
+    volumes:
+      - ~/weather-station-database-data/:/var/lib/postgresql/data
+      - ./weather-station-database.sh:/docker-entrypoint-initdb.d/weather-station-database.sh
+    command: -c password_encryption=scram-sha-256
