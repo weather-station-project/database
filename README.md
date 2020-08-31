@@ -8,7 +8,7 @@ Repository with the code to create the Weather Station Database.
 
 
 ## Database scheme
-![Scheme](https://github.com/davidleonm/weather-station-database/raw/feature/initial_release/db-scheme.jpeg)
+![Scheme](https://github.com/davidleonm/weather-station-database/raw/master/db-scheme.jpeg)
 
 
 ## Changelog
