@@ -2,7 +2,7 @@ version: "3.5"
 services:
   weather-station-database:
     container_name: weather-station-database
-    image: postgres:12.4-alpine
+    image: postgres:13.0-alpine
     restart: unless-stopped
     environment:
       - POSTGRES_INITDB_ARGS=--data-checksums
