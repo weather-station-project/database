@@ -7,6 +7,14 @@ Repository with the code to create the Weather Station Database.
 * **weather-station-database.sh** - Bash script to initialize the instance, it creates the users, databases, indexes and configures the security with the values provided from the .yml file.
 
 
+## Usage
+The project just run the container to initialize the database, credentials and policies
+```bash
+docker-compose -f weather-station-database.yml up
+```
+After this command, you will see on the screen the initialization traces, when the DB is ready for connections, you can kill the container. The created directory is the one for persistent data and configuration.
+
+
 ## Database scheme
 ![Scheme](https://github.com/davidleonm/weather-station-database/raw/master/db-scheme.jpeg)
 
