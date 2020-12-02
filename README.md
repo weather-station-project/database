@@ -1,4 +1,4 @@
-# weather-station-database
+# Weather Station Database
 Repository with the code to create the Weather Station Database.
 
 
