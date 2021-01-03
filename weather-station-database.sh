@@ -60,7 +60,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
     -- Table wind_measurements
     CREATE TABLE wind_measurements (
         id SERIAL PRIMARY KEY,
-        direction INT NOT NULL,
+        direction VARCHAR(4) NOT NULL,
         speed INT NOT NULL,
         gust_speed INT NOT NULL,
         date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
@@ -122,7 +122,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
     -- Table wind_measurements
     CREATE TABLE wind_measurements (
         id SERIAL PRIMARY KEY,
-        direction INT NOT NULL,
+        direction VARCHAR(4) NOT NULL,
         speed INT NOT NULL,
         gust_speed INT NOT NULL,
         date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL

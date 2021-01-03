@@ -12,6 +12,7 @@ Repository with the code to create the Weather Station Database.
 
 
 ## Changelog
+* **1.1.0** - Changed direction column from INT to VARCHAR.
 * **First release** - First version with the code to configure the PostgreSQL database.
 
 
