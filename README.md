@@ -20,6 +20,7 @@ After this command, you will see on the screen the initialization traces, when t
 
 
 ## Changelog
+* **1.2.0** - Erased column gust from wind_measurements table.
 * **1.1.0** - Changed direction column from INT to VARCHAR.
 * **First release** - First version with the code to configure the PostgreSQL database.
 

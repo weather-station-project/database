@@ -62,7 +62,6 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
         id SERIAL PRIMARY KEY,
         direction VARCHAR(4) NOT NULL,
         speed INT NOT NULL,
-        gust_speed INT NOT NULL,
         date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
     );
 
@@ -124,7 +123,6 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
         id SERIAL PRIMARY KEY,
         direction VARCHAR(4) NOT NULL,
         speed INT NOT NULL,
-        gust_speed INT NOT NULL,
         date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
     );
 
