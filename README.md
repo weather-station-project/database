@@ -16,7 +16,7 @@ After this command, you will see on the screen the initialization traces, when t
 
 
 ## Database scheme
-![Scheme](https://github.com/davidleonm/weather-station-database/raw/master/db-scheme.jpeg)
+![Scheme](https://github.com/weather-station-project/database/blob/master/db-scheme.jpeg)
 
 
 ## Changelog
