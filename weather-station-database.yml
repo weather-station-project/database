@@ -2,7 +2,7 @@ version: "3.5"
 services:
   weather-station-database:
     container_name: weather-station-database
-    image: postgres:13.0-alpine
+    image: postgres:13.3-alpine
     restart: unless-stopped
     environment:
       - POSTGRES_INITDB_ARGS=--data-checksums
@@ -20,4 +20,6 @@ services:
     volumes:
       - ~/weather-station-database-data/:/var/lib/postgresql/data
       - ./weather-station-database.sh:/docker-entrypoint-initdb.d/weather-station-database.sh
+      - '/etc/timezone:/etc/timezone:ro'
+      - '/etc/localtime:/etc/localtime:ro'
     command: -c password_encryption=scram-sha-256

@@ -25,9 +25,9 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 
     -- Table ambient_temperatures
     CREATE TABLE ambient_temperatures (
-        id SERIAL PRIMARY KEY,
-        temperature INT NOT NULL,
-        date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
+        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        temperature NUMERIC(5, 2) NOT NULL,
+        date_time TIMESTAMP WITH TIME ZONE NOT NULL
     );
 
     GRANT SELECT, INSERT ON ambient_temperatures TO sensors_reader_dev;
@@ -36,9 +36,9 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 
     -- Table ground_temperatures
     CREATE TABLE ground_temperatures (
-        id SERIAL PRIMARY KEY,
-        temperature INT NOT NULL,
-        date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
+        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        temperature NUMERIC(5, 2) NOT NULL,
+        date_time TIMESTAMP WITH TIME ZONE NOT NULL
     );
 
     GRANT SELECT, INSERT ON ground_temperatures TO sensors_reader_dev;
@@ -47,10 +47,10 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 
     -- Table air_measurements
     CREATE TABLE air_measurements (
-        id SERIAL PRIMARY KEY,
-        pressure INT NOT NULL,
-        humidity INT NOT NULL,
-        date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
+        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        pressure NUMERIC(6, 2) NOT NULL,
+        humidity NUMERIC(5, 2) NOT NULL,
+        date_time TIMESTAMP WITH TIME ZONE NOT NULL
     );
 
     GRANT SELECT, INSERT ON air_measurements TO sensors_reader_dev;
@@ -59,10 +59,10 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 
     -- Table wind_measurements
     CREATE TABLE wind_measurements (
-        id SERIAL PRIMARY KEY,
+        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         direction VARCHAR(4) NOT NULL,
-        speed INT NOT NULL,
-        date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
+        speed NUMERIC(5, 2) NOT NULL,
+        date_time TIMESTAMP WITH TIME ZONE NOT NULL
     );
 
     GRANT SELECT, INSERT ON wind_measurements TO sensors_reader_dev;
@@ -71,9 +71,9 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 
     -- Table rainfall
     CREATE TABLE rainfall (
-        id SERIAL PRIMARY KEY,
-        amount INT NOT NULL,
-        date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
+        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        amount NUMERIC(5, 2) NOT NULL,
+        date_time TIMESTAMP WITH TIME ZONE NOT NULL
     );
 
     GRANT SELECT, INSERT ON rainfall TO sensors_reader_dev;
@@ -86,9 +86,9 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 
     -- Table ambient_temperatures
     CREATE TABLE ambient_temperatures (
-        id SERIAL PRIMARY KEY,
-        temperature INT NOT NULL,
-        date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
+        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        temperature NUMERIC(5, 2) NOT NULL,
+        date_time TIMESTAMP WITH TIME ZONE NOT NULL
     );
 
     GRANT SELECT, INSERT ON ambient_temperatures TO sensors_reader;
@@ -97,9 +97,9 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 
     -- Table ambient_temperatures
     CREATE TABLE ground_temperatures (
-        id SERIAL PRIMARY KEY,
-        temperature INT NOT NULL,
-        date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
+        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        temperature NUMERIC(5, 2) NOT NULL,
+        date_time TIMESTAMP WITH TIME ZONE NOT NULL
     );
 
     GRANT SELECT, INSERT ON ground_temperatures TO sensors_reader;
@@ -108,10 +108,10 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 
     -- Table air_measurements
     CREATE TABLE air_measurements (
-        id SERIAL PRIMARY KEY,
-        pressure INT NOT NULL,
-        humidity INT NOT NULL,
-        date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
+        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        pressure NUMERIC(6, 2) NOT NULL,
+        humidity NUMERIC(5, 2) NOT NULL,
+        date_time TIMESTAMP WITH TIME ZONE NOT NULL
     );
 
     GRANT SELECT, INSERT ON air_measurements TO sensors_reader;
@@ -120,10 +120,10 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 
     -- Table wind_measurements
     CREATE TABLE wind_measurements (
-        id SERIAL PRIMARY KEY,
+        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         direction VARCHAR(4) NOT NULL,
-        speed INT NOT NULL,
-        date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
+        speed NUMERIC(5, 2) NOT NULL,
+        date_time TIMESTAMP WITH TIME ZONE NOT NULL
     );
 
     GRANT SELECT, INSERT ON wind_measurements TO sensors_reader;
@@ -132,9 +132,9 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 
     -- Table rainfall
     CREATE TABLE rainfall (
-        id SERIAL PRIMARY KEY,
+        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         amount INT NOT NULL,
-        date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL
+        date_time TIMESTAMP WITH TIME ZONE NOT NULL
     );
 
     GRANT SELECT, INSERT ON rainfall TO sensors_reader;
