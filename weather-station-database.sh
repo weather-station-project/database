@@ -15,7 +15,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 
     -- Table ambient_temperatures
     CREATE TABLE ambient_temperatures (
-        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         temperature NUMERIC(5, 2) NOT NULL,
         date_time TIMESTAMP WITH TIME ZONE NOT NULL
     );
@@ -26,7 +26,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 
     -- Table ambient_temperatures
     CREATE TABLE ground_temperatures (
-        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         temperature NUMERIC(5, 2) NOT NULL,
         date_time TIMESTAMP WITH TIME ZONE NOT NULL
     );
@@ -37,7 +37,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 
     -- Table air_measurements
     CREATE TABLE air_measurements (
-        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         pressure NUMERIC(6, 2) NOT NULL,
         humidity NUMERIC(5, 2) NOT NULL,
         date_time TIMESTAMP WITH TIME ZONE NOT NULL
@@ -49,7 +49,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 
     -- Table wind_measurements
     CREATE TABLE wind_measurements (
-        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         direction VARCHAR(4) NOT NULL,
         speed NUMERIC(5, 2) NOT NULL,
         date_time TIMESTAMP WITH TIME ZONE NOT NULL
@@ -61,7 +61,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 
     -- Table rainfall
     CREATE TABLE rainfall (
-        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         amount INT NOT NULL,
         date_time TIMESTAMP WITH TIME ZONE NOT NULL
     );
